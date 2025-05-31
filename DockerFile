@@ -1,0 +1,17 @@
+# Usa la imagen oficial de Python
+FROM python:3.12.1
+
+# Establece el directorio de trabajo
+WORKDIR /back_food_app
+
+# Copia los archivos del proyecto
+COPY . /back_food_app
+
+# Instala las dependencias
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Expone el puerto
+EXPOSE 8000
+
+# Comando para ejecutar uvicorn
+#CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
