@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from database import Base, engine
 from models import user_model, dish_model, ingredient_model, recipe_model
 from routers import auth, dish, ingredient
+from iaModel import predict
 
 app = FastAPI()
 
@@ -19,6 +20,7 @@ Base.metadata.create_all(bind=engine)
 app.include_router(auth.router, tags=["Auth"])
 app.include_router(dish.router, tags=["Dishes"])
 app.include_router(ingredient.router, tags=["Ingredients"])
+app.include_router(predict.router, tags=["Predicts"])
 
 @app.get("/")
 def root():
