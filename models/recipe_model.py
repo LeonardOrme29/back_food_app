@@ -5,9 +5,8 @@ from database import Base
 class RecipeModel(Base):
     __tablename__ = "recipe"
     id = Column(Integer, primary_key=True, index=True)
-    dish_id = Column(Integer, ForeignKey("dish.id"), nullable=False)
+    dish_id = Column(Integer, ForeignKey("dishmodel.id"), nullable=False)
     ingredient_id = Column(Integer, ForeignKey("ingredient.id"), nullable=False)
-    quantity = Column(String)
 
-    dish = relationship("DishModel")
+    dishmodel = relationship("DishmodelModel")
     ingredient = relationship("IngredientModel")
