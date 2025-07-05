@@ -29,6 +29,7 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
     if not stored_user or stored_user.password != user.password:
         raise HTTPException(status_code=401, detail="Invalid credentials")
     return {
+        "id":stored_user.id,
         "firstname": stored_user.firstname,
         "lastname": stored_user.lastname,
         "email": stored_user.email

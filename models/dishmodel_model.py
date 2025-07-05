@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float
 from database import Base
+from pydantic import BaseModel
 
 class DishmodelModel(Base):
     __tablename__ = "dishmodel"
@@ -10,3 +11,4 @@ class DishmodelModel(Base):
     grasas = Column(Float)      
     carbohidratos = Column(Float)
     proteinas = Column(Float)
+
